@@ -1,0 +1,23 @@
+#include "rs232.h"
+
+int main() {
+	int comport = 0;
+	char readBuf[4096];
+	char writeBuf[4096];
+
+	// open a serial connection
+	if (RS232_Open(comport, 115200)) {
+		printf("failed to open comport\n");
+		return -1;
+	}
+
+	// write a buffer with some data
+	RS232_Write(comport, writeBuf, sizeof(writeBuf));
+
+	// read into buffer with some data
+	RS232_Read(comport, readBuf, sizeof(readBuf));
+
+	// close a serial connection
+	RS232_Close(comport);
+
+}

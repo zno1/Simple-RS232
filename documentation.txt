@@ -1,0 +1,106 @@
+NOTES:
+
+This file is intended to detail the functions co-ned in this project. For example code
+please see example.txt
+
+Without modification, this library assumes:
+
+Data bits: 8
+Parity: None
+Stop bits: 1
+Flow control: None
+
+------------------------------------------------------------------------------------------
+
+FUNCTION PROTOTYPES:
+
+int RS232_Open(int comport_number, int baudrate);
+int RS232_Read(int comport_number, unsigned char* buf, int size);
+int RS232_Write(int comport_number, unsigned char* buf, int size);
+void RS232_Close(int comport_number);
+
+------------------------------------------------------------------------------------------
+
+DETAILED DESCRIPTIONS:
+
+int RS232_Open(int comport_number, int baudrate);
+	
+	Description: 	This function will open a serial connection on the 
+					given COM port with the given baud rate. 
+
+	Return:			0 on success
+					-1 on failure
+
+	Parameters: 	comport_number  - translates to a com port given by the table below
+					baudrate		- selects the appropriate baud rate
+	
+int RS232_Read(int comport_number, unsigned char* buf, int size);
+	
+	Description: 	This function will read from the specified COM port
+					into the buffer up to the number of characters given by
+					the size parameter.
+
+	Return:			the number of bytes (characters) read
+
+	Parameters: 	comport_number  - translates to a com port given by the table below
+					buf				- buffer where result is stored
+					size			- maximum number of bytes to read
+
+int RS232_Write(int comport_number, unsigned char* buf, int size);
+
+	Description: 	This function will write to the specified COM port
+					from the buffer up to the number of characters given
+					by the size parameter.
+
+	Return:			the number of bytes (characters) written
+					-1 on failure
+
+	Parameters: 	comport_number  - translates to a com port given by the table below
+					buf				- buffer containing characters to write
+					size			- maximum number of bytes to write
+
+void RS232_Close(int comport_number);
+	
+	Description: 	This function will close a serial connection on the 
+					given COM port.
+
+	Return:			-
+
+	Parameters: 	comport_number  - translates to a com port given by the table below
+
+------------------------------------------------------------------------------------------
+
+COMPORT MAP:						BAUD RATES:						
+
+#	LINUX   WINDOWS 				LINUX 	WINDOWS
+0	ttyS0	COM1 					50 		-
+1	ttyS1	COM2 					75 		-
+2	ttyS2	COM3 					110 	110
+3	ttyS3	COM4  					134 	-
+4	ttyS4	COM5 					150 	-
+5	ttyS5	COM6 					200 	-
+6	ttyS6	COM7   					300 	300
+7	ttyS7	COM8 					600 	600
+8	ttyS8	COM9 					1200 	1200
+9	ttyS9	COM10 					1800 	-
+10	ttyS10	COM11 					2400 	2400
+11	ttyS11	COM12 					4800 	4800
+12	ttyS12	COM13 					9600 	9600
+13	ttyS13	COM14 					19200 	19200
+14	ttyS14	COM15 					38400 	38400
+15	ttyS15	COM16 					57600 	57600
+16	ttyUSB0	- 						115200 	115200
+17	ttyUSB1	- 						230400 	128000
+18	ttyUSB2	- 						460800 	256000
+19	ttyUSB3	- 						500000 	500000
+20	ttyUSB4	-	 					576000 	-
+21	ttyUSB5	-						921600 	-
+22	ttyAMA0	- 						1000000 1000000
+23	ttyAMA1	-
+24	ttyACM0	-
+25	ttyACM1	-
+26	rfcomm0	-
+27	rfcomm1	-
+28	ircomm0	-
+29	ircomm1	-
+
