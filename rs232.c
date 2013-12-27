@@ -133,7 +133,7 @@ int RS232_Read(int comport_number, unsigned char* buf, int size) {
 	return n;
 }
 
-int RS232_Write(int comport_number, unsigned char *buf, int size) {
+int RS232_Write(int comport_number, unsigned char* buf, int size) {
 	return write(Cport[comport_number], buf, size);
 }
 
@@ -260,7 +260,7 @@ int RS232_Read(int comport_number, unsigned char* buf, int size) {
 	return n;
 }
 
-int RS232_Write(int comport_number, unsigned char *buf, int size) {
+int RS232_Write(int comport_number, unsigned char* buf, int size) {
 	int n;
 	if (WriteFile(Cport[comport_number], buf, size, (LPDWORD)((void *)&n), NULL)) return n;
 	return -1;

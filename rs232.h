@@ -30,10 +30,15 @@ extern "C" {
 
 #endif
 
-int RS232_Open(int, int);
-int RS232_Read(int, unsigned char *, int);
-int RS232_Write(int, unsigned char *, int);
-void RS232_Close(int);
+
+// #################################################################################
+// ################################ FUNCTIONS ######################################
+// #################################################################################
+
+int RS232_Open(int comport_number, int baudrate);
+int RS232_Read(int comport_number, unsigned char* buf, int size);
+int RS232_Write(int comport_number, unsigned char* buf, int size);
+void RS232_Close(int comport_number);
 
 #ifdef __cplusplus
 }
