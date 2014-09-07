@@ -17,7 +17,8 @@ char comports[30][16] = {
 	"/dev/rfcomm0","/dev/rfcomm1","/dev/ircomm0","/dev/ircomm1"
 };
 
-int RS232_Open(int comport_number, int baudrate) {
+int RS232_Open(int comport_number, int baudrate) 
+	{
 	int baudr, status, error;
 	// make sure our port number falls in the appropriate limits
 	if ((comport_number > 29) || (comport_number < 0)) {
